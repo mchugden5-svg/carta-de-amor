@@ -1,8 +1,10 @@
+ ```html
 <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para ti ❤️</title>
 
 <style>
@@ -13,100 +15,264 @@
 body {
     margin: 0;
     min-height: 100vh;
+    font-family: Georgia, serif;
+    background: linear-gradient(135deg, #ff416c, #ff4b7d, #ff758c);
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3);
-    font-family: Georgia, serif;
     overflow: hidden;
-}
-
-.container {
-    text-align: center;
-}
-
-.envelope {
-    position: relative;
-    width: 320px;
-    height: 210px;
-    background: #f8d7da;
-    margin: auto;
-    cursor: pointer;
-    box-shadow: 0 15px 35px rgba(0,0,0,.25);
-}
-
-.envelope:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-left: 160px solid transparent;
-    border-right: 160px solid transparent;
-    border-top: 110px solid #f1b6bd;
-}
-
-.heart {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 55px;
-    z-index: 3;
-}
-
-.message {
-    display: none;
-    background: white;
-    width: 90%;
-    max-width: 600px;
-    padding: 35px;
-    border-radius: 18px;
-    box-shadow: 0 15px 40px rgba(0,0,0,.3);
-    animation: aparecer 1s ease;
-}
-
-.message h1 {
-    color: #e63963;
-}
-
-.message p {
-    font-size: 19px;
-    line-height: 1.7;
     color: #444;
 }
 
-@keyframes aparecer {
-    from {
-        opacity: 0;
-        transform: scale(.7);
-    }
-    to {
-        opacity: 1;
-        transform: scale(1);
-    }
-}
-
-.hearts {
+/* FONDO */
+.background-hearts {
     position: fixed;
     inset: 0;
     pointer-events: none;
 }
 
-.floating {
+.background-hearts span {
     position: absolute;
-    bottom: -30px;
-    animation: subir 6s linear infinite;
+    bottom: -50px;
     font-size: 25px;
+    animation: flotar linear infinite;
+    opacity: .7;
 }
 
-@keyframes subir {
-    from {
-        transform: translateY(0);
-        opacity: 1;
-    }
-    to {
-        transform: translateY(-110vh);
+@keyframes flotar {
+    0% {
+        transform: translateY(0) rotate(0deg);
         opacity: 0;
+    }
+
+    20% {
+        opacity: .8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* CONTENEDOR */
+.container {
+    width: 100%;
+    max-width: 650px;
+    padding: 20px;
+    text-align: center;
+    z-index: 5;
+}
+
+/* TITULO */
+.intro {
+    color: white;
+    margin-bottom: 25px;
+}
+
+.intro h2 {
+    font-size: 25px;
+    margin-bottom: 8px;
+}
+
+.intro p {
+    font-size: 17px;
+}
+
+/* SOBRE */
+.envelope-wrapper {
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.envelope {
+    position: relative;
+    width: 340px;
+    height: 220px;
+    margin: auto;
+    background: #fff0f3;
+    box-shadow: 0 20px 50px rgba(0,0,0,.3);
+    border-radius: 5px;
+    transition: .5s;
+}
+
+.envelope:hover {
+    transform: translateY(-8px) scale(1.02);
+}
+
+/* TRIANGULO */
+.flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-top: 125px solid #f8b8c3;
+    transform-origin: top;
+    transition: 1s;
+    z-index: 4;
+}
+
+/* PARTE INFERIOR */
+.envelope::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    border-left: 170px solid transparent;
+    border-right: 170px solid transparent;
+    border-bottom: 120px solid #ffdce2;
+}
+
+/* CORAZON */
+.heart {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 65px;
+    z-index: 6;
+    animation: latido 1.2s infinite;
+}
+
+@keyframes latido {
+    0%,100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        transform: translate(-50%, -50%) scale(1.15);
+    }
+}
+
+/* TEXTO SOBRE */
+.envelope-text {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    z-index: 7;
+    color: #b83355;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* CARTA */
+.letter {
+    display: none;
+    background: rgba(255,255,255,.97);
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,.35);
+    animation: aparecer 1.3s ease;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(.5) translateY(100px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.letter h1 {
+    color: #d6335c;
+    font-size: 32px;
+    margin-top: 0;
+}
+
+.letter .line {
+    width: 80px;
+    height: 3px;
+    background: #e75480;
+    margin: 15px auto 25px;
+    border-radius: 10px;
+}
+
+.letter p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin: 18px 0;
+}
+
+.signature {
+    margin-top: 30px;
+    font-size: 22px;
+    color: #d6335c;
+    font-style: italic;
+}
+
+/* BOTON */
+button {
+    border: none;
+    padding: 13px 25px;
+    border-radius: 30px;
+    background: #e63963;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: .3s;
+    box-shadow: 0 7px 15px rgba(230,57,99,.3);
+}
+
+button:hover {
+    transform: scale(1.08);
+    background: #c92751;
+}
+
+/* SORPRESA */
+.surprise {
+    display: none;
+    margin-top: 25px;
+    animation: aparecer 1s ease;
+}
+
+.surprise h2 {
+    color: #d6335c;
+    font-size: 28px;
+}
+
+.big-heart {
+    font-size: 80px;
+    animation: latido 1s infinite;
+}
+
+/* RESPONSIVE */
+@media (max-width: 500px) {
+
+    .envelope {
+        width: 290px;
+        height: 190px;
+    }
+
+    .flap {
+        border-left-width: 145px;
+        border-right-width: 145px;
+        border-top-width: 110px;
+    }
+
+    .envelope::after {
+        border-left-width: 145px;
+        border-right-width: 145px;
+        border-bottom-width: 105px;
+    }
+
+    .letter {
+        padding: 30px 20px;
+    }
+
+    .letter h1 {
+        font-size: 27px;
+    }
+
+    .letter p {
+        font-size: 17px;
     }
 }
 </style>
@@ -114,55 +280,211 @@ body {
 
 <body>
 
+<div class="background-hearts" id="backgroundHearts"></div>
+
 <div class="container">
 
-    <div class="envelope" id="envelope">
-        <div class="heart">❤️</div>
+    <div class="intro" id="intro">
+        <h2>💌 Tengo algo para ti...</h2>
+        <p>Haz clic en el sobre ❤️</p>
     </div>
 
-    <div class="message" id="message">
+    <!-- SOBRE -->
+    <div class="envelope-wrapper" id="envelopeWrapper">
+
+        <div class="envelope" id="envelope">
+
+            <div class="flap"></div>
+
+            <div class="heart">❤️</div>
+
+            <div class="envelope-text">
+                Para alguien muy especial 💕
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- CARTA -->
+    <div class="letter" id="letter">
+
         <h1>Para la persona que amo ❤️</h1>
 
+        <div class="line"></div>
+
         <p>
-        Hoy quiero recordarte lo importante que eres para mí.
-        Gracias por cada momento, cada sonrisa y cada recuerdo
-        que hemos compartido.
+            Hoy quiero decirte algo que quizás no digo
+            todas las veces que debería...
         </p>
 
         <p>
-        Espero que podamos seguir creando muchos momentos
-        juntos y que nuestra historia continúe creciendo.
+            Eres una persona muy especial para mí.
+            Gracias por cada sonrisa, cada momento,
+            cada conversación y cada recuerdo que hemos
+            compartido.
         </p>
 
         <p>
-        Te quiero muchísimo. ❤️
+            No sé qué nos depare el futuro, pero sí sé
+            que quiero seguir creando momentos bonitos
+            contigo.
         </p>
+
+        <p>
+            Porque cuando estoy contigo, hasta los momentos
+            más simples se vuelven especiales. ❤️
+        </p>
+
+        <p>
+            Espero que esta pequeña carta pueda recordarte
+            lo mucho que significas para mí.
+        </p>
+
+        <div class="signature">
+            Con mucho amor ❤️
+        </div>
+
+        <button onclick="mostrarSorpresa()">
+            💖 Tengo una sorpresa
+        </button>
+
+        <div class="surprise" id="surprise">
+
+            <div class="big-heart">❤️</div>
+
+            <h2>Te quiero muchísimo</h2>
+
+            <p>
+                Y esta historia recién comienza... ✨
+            </p>
+
+        </div>
+
     </div>
 
 </div>
 
-<div class="hearts" id="hearts"></div>
-
 <script>
-const envelope = document.getElementById("envelope");
-const message = document.getElementById("message");
 
-envelope.addEventListener("click", () => {
-    envelope.style.display = "none";
-    message.style.display = "block";
+/* CORAZONES DEL FONDO */
 
-    for(let i = 0; i < 30; i++) {
-        const heart = document.createElement("div");
-        heart.className = "floating";
-        heart.innerHTML = "❤️";
-        heart.style.left = Math.random() * 100 + "%";
-        heart.style.animationDelay = Math.random() * 5 + "s";
-        heart.style.fontSize = (15 + Math.random() * 30) + "px";
+const background = document.getElementById("backgroundHearts");
 
-        document.getElementById("hearts").appendChild(heart);
-    }
+for(let i = 0; i < 25; i++) {
+
+    const heart = document.createElement("span");
+
+    heart.innerHTML = Math.random() > .5 ? "❤️" : "💕";
+
+    heart.style.left = Math.random() * 100 + "%";
+
+    heart.style.animationDuration =
+        (5 + Math.random() * 7) + "s";
+
+    heart.style.animationDelay =
+        Math.random() * 7 + "s";
+
+    heart.style.fontSize =
+        (15 + Math.random() * 25) + "px";
+
+    background.appendChild(heart);
+}
+
+
+/* ABRIR CARTA */
+
+document.getElementById("envelopeWrapper")
+.addEventListener("click", function() {
+
+    const envelope = document.getElementById("envelope");
+    const intro = document.getElementById("intro");
+    const letter = document.getElementById("letter");
+
+    envelope.style.transform = "scale(0.8)";
+    envelope.style.opacity = "0";
+
+    setTimeout(() => {
+
+        envelopeWrapper.style.display = "none";
+        intro.style.display = "none";
+
+        letter.style.display = "block";
+
+        crearExplosion();
+
+    }, 700);
+
 });
+
+
+/* EXPLOSION DE CORAZONES */
+
+function crearExplosion() {
+
+    for(let i = 0; i < 40; i++) {
+
+        const heart = document.createElement("div");
+
+        heart.innerHTML =
+            Math.random() > .5 ? "❤️" : "💕";
+
+        heart.style.position = "fixed";
+        heart.style.left = "50%";
+        heart.style.top = "50%";
+        heart.style.fontSize =
+            (15 + Math.random() * 30) + "px";
+
+        heart.style.pointerEvents = "none";
+
+        document.body.appendChild(heart);
+
+        const x =
+            (Math.random() - .5) * 700;
+
+        const y =
+            (Math.random() - .5) * 700;
+
+        heart.animate(
+            [
+                {
+                    transform: "translate(-50%, -50%) scale(0)",
+                    opacity: 1
+                },
+                {
+                    transform:
+                    `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.5)`,
+                    opacity: 0
+                }
+            ],
+            {
+                duration: 1500,
+                easing: "ease-out"
+            }
+        );
+
+        setTimeout(() => {
+            heart.remove();
+        }, 1600);
+    }
+}
+
+
+/* SORPRESA */
+
+function mostrarSorpresa() {
+
+    const surprise =
+        document.getElementById("surprise");
+
+    surprise.style.display = "block";
+
+    crearExplosion();
+
+}
+
 </script>
 
 </body>
 </html>
+```
