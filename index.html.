@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para ti ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3);
+    font-family: Georgia, serif;
+    overflow: hidden;
+}
+
+.container {
+    text-align: center;
+}
+
+.envelope {
+    position: relative;
+    width: 320px;
+    height: 210px;
+    background: #f8d7da;
+    margin: auto;
+    cursor: pointer;
+    box-shadow: 0 15px 35px rgba(0,0,0,.25);
+}
+
+.envelope:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-left: 160px solid transparent;
+    border-right: 160px solid transparent;
+    border-top: 110px solid #f1b6bd;
+}
+
+.heart {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 55px;
+    z-index: 3;
+}
+
+.message {
+    display: none;
+    background: white;
+    width: 90%;
+    max-width: 600px;
+    padding: 35px;
+    border-radius: 18px;
+    box-shadow: 0 15px 40px rgba(0,0,0,.3);
+    animation: aparecer 1s ease;
+}
+
+.message h1 {
+    color: #e63963;
+}
+
+.message p {
+    font-size: 19px;
+    line-height: 1.7;
+    color: #444;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(.7);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hearts {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+}
+
+.floating {
+    position: absolute;
+    bottom: -30px;
+    animation: subir 6s linear infinite;
+    font-size: 25px;
+}
+
+@keyframes subir {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-110vh);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="envelope" id="envelope">
+        <div class="heart">❤️</div>
+    </div>
+
+    <div class="message" id="message">
+        <h1>Para la persona que amo ❤️</h1>
+
+        <p>
+        Hoy quiero recordarte lo importante que eres para mí.
+        Gracias por cada momento, cada sonrisa y cada recuerdo
+        que hemos compartido.
+        </p>
+
+        <p>
+        Espero que podamos seguir creando muchos momentos
+        juntos y que nuestra historia continúe creciendo.
+        </p>
+
+        <p>
+        Te quiero muchísimo. ❤️
+        </p>
+    </div>
+
+</div>
+
+<div class="hearts" id="hearts"></div>
+
+<script>
+const envelope = document.getElementById("envelope");
+const message = document.getElementById("message");
+
+envelope.addEventListener("click", () => {
+    envelope.style.display = "none";
+    message.style.display = "block";
+
+    for(let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.className = "floating";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * 100 + "%";
+        heart.style.animationDelay = Math.random() * 5 + "s";
+        heart.style.fontSize = (15 + Math.random() * 30) + "px";
+
+        document.getElementById("hearts").appendChild(heart);
+    }
+});
+</script>
+
+</body>
+</html>
