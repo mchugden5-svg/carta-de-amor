@@ -4,9 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Para ti ❤️</title>
+<title>Para mi mejor amiga ❤️</title>
 
 <style>
+
 * {
     box-sizing: border-box;
 }
@@ -40,6 +41,7 @@ body {
 }
 
 @keyframes flotar {
+
     0% {
         transform: translateY(0) rotate(0deg);
         opacity: 0;
@@ -53,6 +55,7 @@ body {
         transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
     }
+
 }
 
 /* CONTENEDOR */
@@ -73,7 +76,7 @@ body {
 }
 
 .intro h2 {
-    font-size: 25px;
+    font-size: 26px;
     margin-bottom: 8px;
 }
 
@@ -109,9 +112,11 @@ body {
     left: 0;
     width: 0;
     height: 0;
+
     border-left: 170px solid transparent;
     border-right: 170px solid transparent;
     border-top: 125px solid #f8b8c3;
+
     transform-origin: top;
     transition: 1s;
     z-index: 4;
@@ -122,6 +127,7 @@ body {
     position: absolute;
     bottom: 0;
     left: 0;
+
     border-left: 170px solid transparent;
     border-right: 170px solid transparent;
     border-bottom: 120px solid #ffdce2;
@@ -131,13 +137,17 @@ body {
     position: absolute;
     left: 50%;
     top: 50%;
+
     transform: translate(-50%, -50%);
+
     font-size: 65px;
     z-index: 6;
+
     animation: latido 1.2s infinite;
 }
 
 @keyframes latido {
+
     0%,100% {
         transform: translate(-50%, -50%) scale(1);
     }
@@ -145,13 +155,16 @@ body {
     50% {
         transform: translate(-50%, -50%) scale(1.15);
     }
+
 }
 
 .envelope-text {
     position: absolute;
     bottom: 20px;
     width: 100%;
+
     z-index: 7;
+
     color: #b83355;
     font-weight: bold;
     font-size: 16px;
@@ -161,14 +174,20 @@ body {
 
 .letter {
     display: none;
+
     background: rgba(255,255,255,.97);
+
     padding: 40px 30px;
+
     border-radius: 20px;
+
     box-shadow: 0 25px 60px rgba(0,0,0,.35);
+
     animation: aparecer 1.3s ease;
 }
 
 @keyframes aparecer {
+
     from {
         opacity: 0;
         transform: scale(.5) translateY(100px);
@@ -178,6 +197,7 @@ body {
         opacity: 1;
         transform: scale(1) translateY(0);
     }
+
 }
 
 .letter h1 {
@@ -189,8 +209,11 @@ body {
 .line {
     width: 80px;
     height: 3px;
+
     background: #e75480;
+
     margin: 15px auto 25px;
+
     border-radius: 10px;
 }
 
@@ -202,8 +225,11 @@ body {
 
 .signature {
     margin-top: 30px;
+
     font-size: 22px;
+
     color: #d6335c;
+
     font-style: italic;
 }
 
@@ -211,41 +237,66 @@ body {
 
 button {
     border: none;
+
     padding: 13px 25px;
+
     border-radius: 30px;
+
     background: #e63963;
+
     color: white;
+
     font-size: 16px;
+
     cursor: pointer;
+
     margin-top: 20px;
+
     transition: .3s;
+
     box-shadow: 0 7px 15px rgba(230,57,99,.3);
 }
 
 button:hover {
     transform: scale(1.08);
+
     background: #c92751;
+}
+
+/* MUSICA */
+
+.music-box {
+    margin-top: 20px;
+}
+
+.music-button {
+    background: #8e3157;
 }
 
 /* SORPRESA */
 
 .surprise {
     display: none;
+
     margin-top: 25px;
+
     animation: aparecer 1s ease;
 }
 
 .surprise h2 {
     color: #d6335c;
+
     font-size: 28px;
 }
 
 .big-heart {
     font-size: 80px;
+
     animation: latidoGrande 1s infinite;
 }
 
 @keyframes latidoGrande {
+
     0%,100% {
         transform: scale(1);
     }
@@ -253,6 +304,7 @@ button:hover {
     50% {
         transform: scale(1.2);
     }
+
 }
 
 /* RESPONSIVE */
@@ -287,7 +339,9 @@ button:hover {
     .letter p {
         font-size: 17px;
     }
+
 }
+
 </style>
 </head>
 
@@ -297,10 +351,18 @@ button:hover {
 
 <div class="container">
 
+    <!-- INTRO -->
+
     <div class="intro" id="intro">
+
         <h2>💌 Tengo algo para ti...</h2>
-        <p>Haz clic en el sobre ❤️</p>
+
+        <p>
+            Haz clic en el sobre ❤️
+        </p>
+
     </div>
+
 
     <!-- SOBRE -->
 
@@ -310,7 +372,9 @@ button:hover {
 
             <div class="flap"></div>
 
-            <div class="heart">❤️</div>
+            <div class="heart">
+                ❤️
+            </div>
 
             <div class="envelope-text">
                 Para alguien muy especial 💕
@@ -320,18 +384,23 @@ button:hover {
 
     </div>
 
+
     <!-- CARTA -->
 
     <div class="letter" id="letter">
 
-        <h1>Para mi mejor amiga ❤️</h1>
+        <h1>
+            Para mi mejor amiga ❤️
+        </h1>
 
         <div class="line"></div>
+
 
         <p>
             Hoy quiero decirte algo que quizás no digo
             todas las veces que debería...
         </p>
+
 
         <p>
             Eres una persona muy especial para mí.
@@ -340,11 +409,13 @@ button:hover {
             compartido.
         </p>
 
+
         <p>
             Estos dos meses de amistad han sido
             muy bonitos, y espero que sean solamente
             el comienzo de muchos momentos más.
         </p>
+
 
         <p>
             Gracias por estar ahí y por hacer que
@@ -352,43 +423,72 @@ button:hover {
             en recuerdos especiales. ❤️
         </p>
 
+
         <div class="signature">
             Con mucho cariño ❤️
         </div>
 
-        <button onclick="mostrarSorpresa()">
-            💖 Tengo una sorpresa
-        </button>
+
+        <!-- MUSICA -->
+
+        <div class="music-box">
+
+            <button
+                class="music-button"
+                onclick="controlarMusica()">
+
+                🎵 Reproducir música ❤️
+
+            </button>
+
+        </div>
+
 
         <!-- SORPRESA -->
 
+        <button onclick="mostrarSorpresa()">
+
+            💖 Tengo una sorpresa
+
+        </button>
+
+
         <div class="surprise" id="surprise">
 
-            <div class="big-heart">❤️</div>
+            <div class="big-heart">
+                ❤️
+            </div>
+
 
             <h2>
                 ❤️ 2 MESES DE MEJORES AMIGOS ❤️
             </h2>
+
 
             <p>
                 🥹 Ya son dos meses compartiendo risas,
                 conversaciones y momentos muy bonitos.
             </p>
 
+
             <p>
                 Gracias por ser una persona tan especial
                 y por todos los recuerdos que hemos creado. 🫶
             </p>
+
 
             <p>
                 Espero que sigamos sumando muchos más
                 meses, aventuras y recuerdos juntos. ✨
             </p>
 
+
             <p>
+
                 <strong>
                     ¡Felices 2 meses de mejores amigos! ❤️
                 </strong>
+
             </p>
 
         </div>
@@ -397,16 +497,28 @@ button:hover {
 
 </div>
 
+
+<!-- MUSICA -->
+
+<audio id="musica" loop>
+
+    <source src="musica.mp3" type="audio/mpeg">
+
+</audio>
+
+
 <script>
 
-/* CORAZONES DEL FONDO */
+/* CORAZONES */
 
 const background =
     document.getElementById("backgroundHearts");
 
+
 for (let i = 0; i < 25; i++) {
 
-    const heart = document.createElement("span");
+    const heart =
+        document.createElement("span");
 
     heart.innerHTML =
         Math.random() > .5 ? "❤️" : "💕";
@@ -424,6 +536,7 @@ for (let i = 0; i < 25; i++) {
         (15 + Math.random() * 25) + "px";
 
     background.appendChild(heart);
+
 }
 
 
@@ -443,19 +556,24 @@ document
             document.getElementById("letter");
 
         envelope.style.transform =
-            "scale(0.8)";
+            "scale(.8)";
 
-        envelope.style.opacity = "0";
+        envelope.style.opacity =
+            "0";
+
 
         setTimeout(function() {
 
             document
                 .getElementById("envelopeWrapper")
-                .style.display = "none";
+                .style.display =
+                "none";
 
-            intro.style.display = "none";
+            intro.style.display =
+                "none";
 
-            letter.style.display = "block";
+            letter.style.display =
+                "block";
 
             crearExplosion();
 
@@ -464,7 +582,37 @@ document
     });
 
 
-/* EXPLOSION DE CORAZONES */
+/* MUSICA */
+
+function controlarMusica() {
+
+    const musica =
+        document.getElementById("musica");
+
+    const boton =
+        document.querySelector(".music-button");
+
+
+    if (musica.paused) {
+
+        musica.play();
+
+        boton.innerHTML =
+            "⏸️ Pausar música";
+
+    } else {
+
+        musica.pause();
+
+        boton.innerHTML =
+            "🎵 Reproducir música ❤️";
+
+    }
+
+}
+
+
+/* EXPLOSION */
 
 function crearExplosion() {
 
@@ -476,16 +624,23 @@ function crearExplosion() {
         heart.innerHTML =
             Math.random() > .5 ? "❤️" : "💕";
 
-        heart.style.position = "fixed";
-        heart.style.left = "50%";
-        heart.style.top = "50%";
+        heart.style.position =
+            "fixed";
+
+        heart.style.left =
+            "50%";
+
+        heart.style.top =
+            "50%";
 
         heart.style.fontSize =
             (15 + Math.random() * 30) + "px";
 
-        heart.style.pointerEvents = "none";
+        heart.style.pointerEvents =
+            "none";
 
         document.body.appendChild(heart);
+
 
         const x =
             (Math.random() - .5) * 700;
@@ -493,40 +648,55 @@ function crearExplosion() {
         const y =
             (Math.random() - .5) * 700;
 
+
         heart.animate(
+
             [
                 {
                     transform:
-                        "translate(-50%, -50%) scale(0)",
+                    "translate(-50%, -50%) scale(0)",
+
                     opacity: 1
                 },
+
                 {
                     transform:
-                        `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.5)`,
+                    `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.5)`,
+
                     opacity: 0
                 }
+
             ],
+
             {
                 duration: 1500,
+
                 easing: "ease-out"
             }
+
         );
 
+
         setTimeout(function() {
+
             heart.remove();
+
         }, 1600);
+
     }
+
 }
 
 
-/* BOTON SORPRESA */
+/* SORPRESA */
 
 function mostrarSorpresa() {
 
     const surprise =
         document.getElementById("surprise");
 
-    surprise.style.display = "block";
+    surprise.style.display =
+        "block";
 
     crearExplosion();
 
