@@ -1,5 +1,4 @@
- ```html
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
 <meta charset="UTF-8">
@@ -20,21 +19,22 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden;
+    overflow-x: hidden;
     color: #444;
 }
 
-/* FONDO */
+/* CORAZONES DEL FONDO */
+
 .background-hearts {
     position: fixed;
     inset: 0;
     pointer-events: none;
+    overflow: hidden;
 }
 
 .background-hearts span {
     position: absolute;
     bottom: -50px;
-    font-size: 25px;
     animation: flotar linear infinite;
     opacity: .7;
 }
@@ -56,6 +56,7 @@ body {
 }
 
 /* CONTENEDOR */
+
 .container {
     width: 100%;
     max-width: 650px;
@@ -64,7 +65,8 @@ body {
     z-index: 5;
 }
 
-/* TITULO */
+/* INTRO */
+
 .intro {
     color: white;
     margin-bottom: 25px;
@@ -80,6 +82,7 @@ body {
 }
 
 /* SOBRE */
+
 .envelope-wrapper {
     cursor: pointer;
     perspective: 1000px;
@@ -100,7 +103,6 @@ body {
     transform: translateY(-8px) scale(1.02);
 }
 
-/* TRIANGULO */
 .flap {
     position: absolute;
     top: 0;
@@ -115,7 +117,6 @@ body {
     z-index: 4;
 }
 
-/* PARTE INFERIOR */
 .envelope::after {
     content: "";
     position: absolute;
@@ -126,7 +127,6 @@ body {
     border-bottom: 120px solid #ffdce2;
 }
 
-/* CORAZON */
 .heart {
     position: absolute;
     left: 50%;
@@ -147,7 +147,6 @@ body {
     }
 }
 
-/* TEXTO SOBRE */
 .envelope-text {
     position: absolute;
     bottom: 20px;
@@ -159,6 +158,7 @@ body {
 }
 
 /* CARTA */
+
 .letter {
     display: none;
     background: rgba(255,255,255,.97);
@@ -186,7 +186,7 @@ body {
     margin-top: 0;
 }
 
-.letter .line {
+.line {
     width: 80px;
     height: 3px;
     background: #e75480;
@@ -208,6 +208,7 @@ body {
 }
 
 /* BOTON */
+
 button {
     border: none;
     padding: 13px 25px;
@@ -226,28 +227,36 @@ button:hover {
     background: #c92751;
 }
 
-<div class="surprise" id="surprise">
+/* SORPRESA */
 
-    <div class="big-heart">❤️</div>
+.surprise {
+    display: none;
+    margin-top: 25px;
+    animation: aparecer 1s ease;
+}
 
-    <h2>❤️ 2 MESES DE MEJORES AMIGOS ❤️</h2>
+.surprise h2 {
+    color: #d6335c;
+    font-size: 28px;
+}
 
-    <p>
-        🥹 Ya son dos meses compartiendo risas,
-        conversaciones y momentos muy bonitos.
-    </p>
+.big-heart {
+    font-size: 80px;
+    animation: latidoGrande 1s infinite;
+}
 
-    <p>
-        Gracias por ser una persona tan especial
-        y por todos los recuerdos que hemos creado. 🫶
-    </p>
+@keyframes latidoGrande {
+    0%,100% {
+        transform: scale(1);
+    }
 
-    <p>
-        ¡Felices 2 meses de mejores amigos! ❤️
-    </p>
+    50% {
+        transform: scale(1.2);
+    }
+}
 
-</div>
 /* RESPONSIVE */
+
 @media (max-width: 500px) {
 
     .envelope {
@@ -294,6 +303,7 @@ button:hover {
     </div>
 
     <!-- SOBRE -->
+
     <div class="envelope-wrapper" id="envelopeWrapper">
 
         <div class="envelope" id="envelope">
@@ -311,9 +321,10 @@ button:hover {
     </div>
 
     <!-- CARTA -->
+
     <div class="letter" id="letter">
 
-        <h1>Para la persona que amo ❤️</h1>
+        <h1>Para mi mejor amiga ❤️</h1>
 
         <div class="line"></div>
 
@@ -324,43 +335,60 @@ button:hover {
 
         <p>
             Eres una persona muy especial para mí.
-            Gracias por cada sonrisa, cada momento,
-            cada conversación y cada recuerdo que hemos
+            Gracias por cada sonrisa, cada conversación,
+            cada momento y cada recuerdo que hemos
             compartido.
         </p>
 
         <p>
-            No sé qué nos depare el futuro, pero sí sé
-            que quiero seguir creando momentos bonitos
-            contigo.
+            Estos dos meses de amistad han sido
+            muy bonitos, y espero que sean solamente
+            el comienzo de muchos momentos más.
         </p>
 
         <p>
-            Porque cuando estoy contigo, hasta los momentos
-            más simples se vuelven especiales. ❤️
-        </p>
-
-        <p>
-            Espero que esta pequeña carta pueda recordarte
-            lo mucho que significas para mí.
+            Gracias por estar ahí y por hacer que
+            los momentos simples se conviertan
+            en recuerdos especiales. ❤️
         </p>
 
         <div class="signature">
-            Con mucho amor ❤️
+            Con mucho cariño ❤️
         </div>
 
         <button onclick="mostrarSorpresa()">
             💖 Tengo una sorpresa
         </button>
 
+        <!-- SORPRESA -->
+
         <div class="surprise" id="surprise">
 
             <div class="big-heart">❤️</div>
 
-            <h2>Te quiero muchísimo</h2>
+            <h2>
+                ❤️ 2 MESES DE MEJORES AMIGOS ❤️
+            </h2>
 
             <p>
-                Y esta historia recién comienza... ✨
+                🥹 Ya son dos meses compartiendo risas,
+                conversaciones y momentos muy bonitos.
+            </p>
+
+            <p>
+                Gracias por ser una persona tan especial
+                y por todos los recuerdos que hemos creado. 🫶
+            </p>
+
+            <p>
+                Espero que sigamos sumando muchos más
+                meses, aventuras y recuerdos juntos. ✨
+            </p>
+
+            <p>
+                <strong>
+                    ¡Felices 2 meses de mejores amigos! ❤️
+                </strong>
             </p>
 
         </div>
@@ -373,15 +401,18 @@ button:hover {
 
 /* CORAZONES DEL FONDO */
 
-const background = document.getElementById("backgroundHearts");
+const background =
+    document.getElementById("backgroundHearts");
 
-for(let i = 0; i < 25; i++) {
+for (let i = 0; i < 25; i++) {
 
     const heart = document.createElement("span");
 
-    heart.innerHTML = Math.random() > .5 ? "❤️" : "💕";
+    heart.innerHTML =
+        Math.random() > .5 ? "❤️" : "💕";
 
-    heart.style.left = Math.random() * 100 + "%";
+    heart.style.left =
+        Math.random() * 100 + "%";
 
     heart.style.animationDuration =
         (5 + Math.random() * 7) + "s";
@@ -398,37 +429,49 @@ for(let i = 0; i < 25; i++) {
 
 /* ABRIR CARTA */
 
-document.getElementById("envelopeWrapper")
-.addEventListener("click", function() {
+document
+    .getElementById("envelopeWrapper")
+    .addEventListener("click", function() {
 
-    const envelope = document.getElementById("envelope");
-    const intro = document.getElementById("intro");
-    const letter = document.getElementById("letter");
+        const envelope =
+            document.getElementById("envelope");
 
-    envelope.style.transform = "scale(0.8)";
-    envelope.style.opacity = "0";
+        const intro =
+            document.getElementById("intro");
 
-    setTimeout(() => {
+        const letter =
+            document.getElementById("letter");
 
-        envelopeWrapper.style.display = "none";
-        intro.style.display = "none";
+        envelope.style.transform =
+            "scale(0.8)";
 
-        letter.style.display = "block";
+        envelope.style.opacity = "0";
 
-        crearExplosion();
+        setTimeout(function() {
 
-    }, 700);
+            document
+                .getElementById("envelopeWrapper")
+                .style.display = "none";
 
-});
+            intro.style.display = "none";
+
+            letter.style.display = "block";
+
+            crearExplosion();
+
+        }, 700);
+
+    });
 
 
 /* EXPLOSION DE CORAZONES */
 
 function crearExplosion() {
 
-    for(let i = 0; i < 40; i++) {
+    for (let i = 0; i < 40; i++) {
 
-        const heart = document.createElement("div");
+        const heart =
+            document.createElement("div");
 
         heart.innerHTML =
             Math.random() > .5 ? "❤️" : "💕";
@@ -436,6 +479,7 @@ function crearExplosion() {
         heart.style.position = "fixed";
         heart.style.left = "50%";
         heart.style.top = "50%";
+
         heart.style.fontSize =
             (15 + Math.random() * 30) + "px";
 
@@ -452,12 +496,13 @@ function crearExplosion() {
         heart.animate(
             [
                 {
-                    transform: "translate(-50%, -50%) scale(0)",
+                    transform:
+                        "translate(-50%, -50%) scale(0)",
                     opacity: 1
                 },
                 {
                     transform:
-                    `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.5)`,
+                        `translate(calc(-50% + ${x}px), calc(-50% + ${y}px)) scale(1.5)`,
                     opacity: 0
                 }
             ],
@@ -467,14 +512,14 @@ function crearExplosion() {
             }
         );
 
-        setTimeout(() => {
+        setTimeout(function() {
             heart.remove();
         }, 1600);
     }
 }
 
 
-/* SORPRESA */
+/* BOTON SORPRESA */
 
 function mostrarSorpresa() {
 
@@ -491,4 +536,3 @@ function mostrarSorpresa() {
 
 </body>
 </html>
-```
